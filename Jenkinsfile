@@ -7,8 +7,8 @@ pipeline {
       }
     stage('Upload to AWS') {
       steps {
-        withAWS(region:'us-east-2',credentials:'blueocean') {
-          s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'index.html', bucket:'clouddevops-jenkins-blueocean-s3')
+        withAWS(region:'us-east-2',credentials:'MyCredentials') {
+          s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'index.html', bucket:'/clouddevops-cicd-pipeline-jenkins-s3')
         }
       }
     }
